@@ -4,7 +4,10 @@ import 'package:seat_finder/new_widgets/side_compaertment.dart';
 
 class Compartment extends StatelessWidget {
   const Compartment(
-      {super.key, required this.upperStart, required this.lowerStart, required this.sideStart});
+      {super.key,
+      required this.upperStart,
+      required this.lowerStart,
+      required this.sideStart});
 
   final int upperStart;
   final int lowerStart;
@@ -13,7 +16,7 @@ class Compartment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 1),
       width: double.infinity,
       height: 130,
       // padding: const EdgeInsets.all(8),
@@ -25,7 +28,7 @@ class Compartment extends StatelessWidget {
             lowerSeatsStart: lowerStart, upperSeatsStart: upperStart),
         const Spacer(),
         SideComparatment(
-          sideLower: sideStart-1,
+          sideLower: sideStart - 1,
         )
       ]),
     );

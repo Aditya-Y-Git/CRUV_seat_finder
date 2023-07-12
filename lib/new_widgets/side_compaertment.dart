@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seat_finder/data/seats_data.dart';
 
-import 'package:seat_finder/new_widgets/single_seat.dart';
+import 'package:seat_finder/new_widgets/upper_single_seat.dart';
+import 'package:seat_finder/new_widgets/Lower_single_seat.dart';
 
 class SideComparatment extends StatelessWidget {
   const SideComparatment({super.key, required this.sideLower});
@@ -38,7 +39,7 @@ class SideComparatment extends StatelessWidget {
                 ),
               ),
             ),
-            child: NewSingleSeat(seat: seatsData[sideLower]),
+            child: UpperSingleSeat(seat: seatsData[sideLower]),
           ),
           const Spacer(),
           Container(
@@ -62,7 +63,7 @@ class SideComparatment extends StatelessWidget {
                 ),
               ),
             ),
-            child: NewSingleSeat(
+            child: LowerSingleSeat(
               seat: seatsData[sideLower + 1],
             ),
           )

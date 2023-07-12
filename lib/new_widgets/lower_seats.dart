@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seat_finder/data/seats_data.dart';
-import 'package:seat_finder/new_widgets/single_seat.dart';
+import 'package:seat_finder/new_widgets/lower_single_seat.dart';
 
 class LowerSeats extends StatelessWidget {
   const LowerSeats({super.key, required this.start});
@@ -36,11 +36,11 @@ class LowerSeats extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            NewSingleSeat(seat: seatsData[start]),
+            LowerSingleSeat(seat: seatsData[start]),
             const Spacer(),
-            NewSingleSeat(seat: seatsData[start + 1]),
+            LowerSingleSeat(seat: seatsData[start + 1]),
             const Spacer(),
-            NewSingleSeat(
+            LowerSingleSeat(
               seat: seatsData[start + 2],
             ),
           ],
