@@ -15,8 +15,6 @@ class MainCompartment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 180,
-      // padding: const EdgeInsets.all(16),
-      // decoration: const BoxDecoration(color: Colors.yellow),
       child: Column(
         children: [
           UpperSeats(start: upperSeatsStart),

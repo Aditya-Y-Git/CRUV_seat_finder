@@ -21,19 +21,22 @@ class LowerSingleSeat extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         height: 50,
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            seatsData[seat.seatNumber].cateory.name.toUpperCase(),
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            seatsData[seat.seatNumber].seatNumber.toString(),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              seatsData[seat.seatNumber].cateory.name.toUpperCase(),
+              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              seatsData[seat.seatNumber].seatNumber.toString(),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       ),
     );
   }

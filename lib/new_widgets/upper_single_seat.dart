@@ -12,9 +12,11 @@ class UpperSingleSeat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 55,
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 169, 215, 237),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: highlightedSeat != null
+            ? const Color.fromARGB(255, 62, 184, 241)
+            : const Color.fromARGB(255, 169, 215, 237),
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
         ),
@@ -22,19 +24,22 @@ class UpperSingleSeat extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         height: 50,
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            seatsData[seat.seatNumber].seatNumber.toString(),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            seatsData[seat.seatNumber].cateory.name.toUpperCase(),
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
-          ),
-        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              seatsData[seat.seatNumber].seatNumber.toString(),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              seatsData[seat.seatNumber].cateory.name.toUpperCase(),
+              style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }

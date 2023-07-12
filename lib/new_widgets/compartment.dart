@@ -19,18 +19,18 @@ class Compartment extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 1),
       width: double.infinity,
       height: 130,
-      // padding: const EdgeInsets.all(8),
-      decoration: const BoxDecoration(
-          // color: Colors.red,
+      child: Row(
+        children: [
+          MainCompartment(
+            lowerSeatsStart: lowerStart,
+            upperSeatsStart: upperStart,
           ),
-      child: Row(children: [
-        MainCompartment(
-            lowerSeatsStart: lowerStart, upperSeatsStart: upperStart),
-        const Spacer(),
-        SideComparatment(
-          sideLower: sideStart - 1,
-        )
-      ]),
+          const Spacer(),
+          SideComparatment(
+            sideLower: sideStart - 1,
+          )
+        ],
+      ),
     );
   }
 }

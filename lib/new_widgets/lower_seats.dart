@@ -13,7 +13,6 @@ class LowerSeats extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
-          // color: Colors.amber,
           border: Border(
             bottom: BorderSide(
               color: Colors.blue,

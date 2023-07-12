@@ -13,8 +13,6 @@ class SideComparatment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 67,
-      // padding: const EdgeInsets.all(8),
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -44,7 +42,6 @@ class SideComparatment extends StatelessWidget {
           const Spacer(),
           Container(
             decoration: const BoxDecoration(
-              // color: Colors.yellow,
               border: Border(
                 bottom: BorderSide(
                   color: Colors.blue,
@@ -66,7 +63,7 @@ class SideComparatment extends StatelessWidget {
             child: LowerSingleSeat(
               seat: seatsData[sideLower + 1],
             ),
-          )
+          ),
         ],
       ),
     );

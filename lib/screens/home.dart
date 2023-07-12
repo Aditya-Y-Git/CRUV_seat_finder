@@ -21,16 +21,19 @@ class _HomeScreenState extends State<HomeScreen> {
     ScrollController _scrollController = ScrollController();
     Seat? highlightedSeat;
 
+    // list of starting seat number of first row in each compartment
     List<Seat> upperSeats = [];
     for (var i = 0; i < 72; i += 8) {
       upperSeats.add(seatsData[i]);
     }
 
+    // list of starting seat number of second row in each compartment
     List<Seat> lowerSeats = [];
     for (var i = 3; i < 72; i += 8) {
       lowerSeats.add(seatsData[i]);
     }
 
+    // list of starting seat number of each side compartment
     List<Seat> sideSeats = [];
     for (int i = 1; i <= 72; i++) {
       if (i % 8 == 0) {
@@ -38,13 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     }
 
+    // tuple of all the above seat numbers
     List<Tuple3<Seat, Seat, Seat>> seatPairs = [];
     for (var i = 0; i < upperSeats.length; i++) {
       seatPairs.add(Tuple3(upperSeats[i], lowerSeats[i], sideSeats[i]));
     }
 
+    // to scroll to a particular searched seat
     void _scrollToSeat(Seat seat) {
       final enteredSeaNumber = int.tryParse(_searchController.text);
+
+      // validations to check if correct seat number is entered
       if (enteredSeaNumber == null || enteredSeaNumber > 72) {
         showDialog(
           context: context,
@@ -65,9 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
         return;
       }
       final index = seatsData.indexOf(seat);
+
       if (index != -1) {
-        const itemExtent = 70.0; // Adjust the item height
+        const itemExtent = 20.0; // Adjust the item height
         final offset = index * itemExtent;
+
         _scrollController.animateTo(
           offset,
           duration: const Duration(milliseconds: 500),
@@ -86,29 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    void searchSeat() {
-      final enteredSeaNumber = int.tryParse(_searchController.text);
-      if (enteredSeaNumber == null || enteredSeaNumber > 72) {
-        showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(
-            title: const Text('Invalid input'),
-            content:
-                const Text('Please make sure a valid seat number is entered'),
-            actions: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Close'),
-              ),
-            ],
-          ),
-        );
-        return;
-      }
-    }
-
     @override
     void dispose() {
       _searchController.dispose();
@@ -125,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // heading
+              // title of app
               Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -189,7 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // seats
+              // all seats
               const SizedBox(
                 height: 20,
               ),
